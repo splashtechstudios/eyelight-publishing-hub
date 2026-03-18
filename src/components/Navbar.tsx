@@ -2,15 +2,16 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.jpeg";
 
+const navLinks = [
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Testimonials", href: "#testimonials" },
+  { label: "FAQ", href: "#faq" },
+];
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const navLinks = [
-    { label: "Home", href: "#home" },
-    { label: "Services", href: "#services" },
-    { label: "How It Works", href: "#how-it-works" },
-    { label: "Contact", href: "#contact" },
-  ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
@@ -20,7 +21,6 @@ const Navbar = () => {
             <img src={logo} alt="Eyelight Publishing" className="h-10 lg:h-12 w-auto" />
           </a>
 
-          {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
@@ -32,14 +32,13 @@ const Navbar = () => {
               </a>
             ))}
             <a
-              href="#services"
-              className="px-5 py-2.5 bg-accent text-accent-foreground text-sm font-semibold rounded-md hover:opacity-90 transition-opacity"
+              href="#order"
+              className="px-5 py-2.5 bg-accent text-accent-foreground text-sm font-semibold rounded-full hover:opacity-90 transition-opacity"
             >
               Order Now
             </a>
           </div>
 
-          {/* Mobile toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden p-2 text-foreground"
@@ -49,7 +48,6 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Nav */}
         {isOpen && (
           <div className="md:hidden pb-6 border-t border-border pt-4">
             <div className="flex flex-col gap-4">
@@ -64,9 +62,9 @@ const Navbar = () => {
                 </a>
               ))}
               <a
-                href="#services"
+                href="#order"
                 onClick={() => setIsOpen(false)}
-                className="px-5 py-2.5 bg-accent text-accent-foreground text-sm font-semibold rounded-md text-center hover:opacity-90 transition-opacity"
+                className="px-5 py-2.5 bg-accent text-accent-foreground text-sm font-semibold rounded-full text-center hover:opacity-90 transition-opacity"
               >
                 Order Now
               </a>

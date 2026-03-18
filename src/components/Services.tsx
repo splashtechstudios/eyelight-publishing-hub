@@ -11,113 +11,180 @@ import {
   Megaphone,
 } from "lucide-react";
 import ServiceCard from "./ServiceCard";
-import { useToast } from "@/hooks/use-toast";
 
-const services = [
+export const services = [
   {
-    title: "Book Writing",
-    description: "Professional ghostwriting services to bring your story to life with expert narrative craft.",
-    price: "From $0.10/word",
+    id: "ghostwriting",
+    title: "Ghostwriting",
+    description:
+      "We'll help you shape your raw ideas, experiences, and expertise into a powerful book your readers will connect with.",
+    price: "₦1,200,000 / $900",
+    priceNote: "per 10,000 words (≈50 pages)",
+    amount: 900,
     icon: PenTool,
-    features: ["Full manuscript writing", "Research & development", "Revisions included"],
+    features: [
+      "In-depth conversations to capture your voice",
+      "Detailed outline before writing begins",
+      "Chapter-by-chapter review & revisions",
+    ],
   },
   {
-    title: "Book Editing",
-    description: "Comprehensive developmental and line editing to elevate your manuscript to publishing standard.",
-    price: "From $0.03/word",
+    id: "dev-editing",
+    title: "Developmental Editing",
+    description:
+      "We'll take your manuscript beyond 'well-written' and turn it into a book that flows effortlessly from start to finish.",
+    price: "₦800,000 / $600",
+    priceNote: "per 10,000 words",
+    amount: 600,
     icon: FileEdit,
-    features: ["Developmental editing", "Line-by-line refinement", "Detailed feedback report"],
+    features: [
+      "Structure & chapter arrangement",
+      "Argument & narrative strengthening",
+      "Tone & style refinement",
+    ],
   },
   {
-    title: "Book Proofreading",
-    description: "Meticulous proofreading to catch every typo, grammatical error, and formatting inconsistency.",
-    price: "From $0.015/word",
+    id: "proofreading",
+    title: "Proofreading",
+    description:
+      "Final reading before printing or publishing — checking for typos, formatting errors, and layout issues.",
+    price: "₦7,000 / $5",
+    priceNote: "per page (A4 post-formatting)",
+    amount: 5,
     icon: Search,
-    features: ["Grammar & spelling check", "Punctuation review", "Consistency verification"],
+    features: [
+      "Typo & grammar correction",
+      "Formatting error checks",
+      "Layout consistency review",
+    ],
   },
   {
-    title: "Formatting & Layout",
-    description: "Professional interior layout design for print and digital formats that meets industry standards.",
-    price: "From $150",
+    id: "formatting",
+    title: "Book Formatting & Typesetting",
+    description:
+      "Professional interior design so your book is visually attractive and easy to read, for both print and digital.",
+    price: "₦1,400 / $1",
+    priceNote: "per page",
+    amount: 1,
     icon: LayoutGrid,
-    features: ["Print-ready formatting", "eBook conversion", "Table of contents & headers"],
+    features: [
+      "Professional fonts & spacing",
+      "Page numbering & chapter headings",
+      "Print & digital compatibility",
+    ],
   },
   {
-    title: "ISBN Procurement",
-    description: "We handle the full ISBN registration process so your book is ready for distribution worldwide.",
-    price: "$99",
-    icon: Hash,
-    features: ["ISBN registration", "Barcode generation", "Metadata setup"],
-  },
-  {
-    title: "Book Printing",
-    description: "High-quality offset and print-on-demand services with premium paper and binding options.",
-    price: "From $3/copy",
-    icon: Printer,
-    features: ["Paperback & hardcover", "Premium paper options", "Bulk discounts available"],
-  },
-  {
-    title: "Digital Publishing",
-    description: "Distribute your book across major digital platforms including Amazon, Apple Books, and more.",
-    price: "From $199",
-    icon: Globe,
-    features: ["Multi-platform distribution", "DRM protection", "Sales reporting"],
-  },
-  {
+    id: "cover-design",
     title: "Book Cover Design",
-    description: "Eye-catching, genre-appropriate cover designs that sell your book before readers open it.",
-    price: "$200",
+    description:
+      "Front, spine, and back cover design with professional typography, imagery, and ISBN barcode placement.",
+    price: "₦140,000 / $100",
+    priceNote: "flat rate",
+    amount: 100,
     icon: Palette,
-    features: ["Custom illustration", "Front, spine & back", "Print & digital versions"],
+    features: [
+      "Front, spine & back cover",
+      "Blurb & author bio placement",
+      "Competitive, genre-appropriate design",
+    ],
   },
   {
+    id: "isbn",
+    title: "ISBN & Copyright Registration",
+    description:
+      "Your book ISBN will be registered so it can be tracked and sold worldwide, plus copyright protection.",
+    price: "Free",
+    priceNote: "T&C applies",
+    amount: 0,
+    icon: Hash,
+    features: [
+      "ISBN registration",
+      "Copyright protection",
+      "Publishing details setup",
+    ],
+  },
+  {
+    id: "printing",
+    title: "Printing & Binding",
+    description:
+      "High-quality paper and binding options with proof copy review before full printing.",
+    price: "Custom Quote",
+    priceNote: "depends on size & quantity",
+    amount: 0,
+    icon: Printer,
+    features: [
+      "Paperback & hardcover options",
+      "Proof copy review",
+      "Bulk printing arrangements",
+    ],
+  },
+  {
+    id: "publishing",
+    title: "Publishing & Distribution",
+    description:
+      "Uploading to Amazon KDP, Selar, and other platforms with retail price and distribution channel setup.",
+    price: "₦60,000 / $49",
+    priceNote: "flat rate",
+    amount: 49,
+    icon: Globe,
+    features: [
+      "Amazon KDP & Selar upload",
+      "Retail price setup",
+      "Distribution channel config",
+    ],
+  },
+  {
+    id: "branding",
     title: "Author Branding",
-    description: "Build your author platform with professional social media management and brand identity.",
+    description:
+      "Build your author platform with professional social media management and brand identity.",
     price: "From $300/mo",
+    priceNote: "monthly retainer",
+    amount: 300,
     icon: Users,
-    features: ["Social media management", "Brand identity design", "Content calendar"],
+    features: [
+      "Social media management",
+      "Brand identity design",
+      "Content calendar & strategy",
+    ],
   },
   {
-    title: "Book Marketing",
-    description: "Strategic marketing plans to maximize your book's visibility and drive sales from day one.",
-    price: "From $500",
+    id: "marketing",
+    title: "Book Marketing Strategy",
+    description:
+      "Launch strategy, social media campaigns, and promotions to build excitement around your book.",
+    price: "Free / Add-On",
+    priceNote: "with 5+ services",
+    amount: 0,
     icon: Megaphone,
-    features: ["Launch strategy", "PR & media outreach", "Ad campaign management"],
+    features: [
+      "Launch strategy & promotions",
+      "30 social media content pieces",
+      "Campaign management",
+    ],
   },
 ];
 
 const Services = () => {
-  const { toast } = useToast();
-
-  const handleAdd = (title: string) => {
-    toast({
-      title: "Service Added",
-      description: `${title} has been added. Contact us at services@eyelightpublishing.com to finalize your order.`,
-    });
-  };
-
   return (
     <section id="services" className="py-16 lg:py-24 bg-muted">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 lg:mb-16">
-          <p className="text-sm font-semibold uppercase tracking-widest text-accent mb-3">
-            Our Services
+        <div className="mb-12 lg:mb-16">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3 flex items-center gap-2">
+            <span className="w-1 h-1 bg-accent rounded-full" /> Services
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Everything you need to publish
+            Services <span className="text-accent">Offered</span>
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Select the services you need. Each comes with transparent pricing and professional execution.
+          <p className="text-muted-foreground max-w-xl">
+            Each service is designed to take your book from concept to completion
+            with professional quality at every stage.
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service) => (
-            <ServiceCard
-              key={service.title}
-              {...service}
-              onAdd={() => handleAdd(service.title)}
-            />
+            <ServiceCard key={service.id} service={service} />
           ))}
         </div>
       </div>
