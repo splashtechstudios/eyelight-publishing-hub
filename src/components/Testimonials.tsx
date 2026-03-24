@@ -1,4 +1,8 @@
 import { Quote } from "lucide-react";
+import nurseSugarImg from "@/assets/testimonial-nurse-sugar.png";
+import toluImg from "@/assets/testimonial-tolu.png";
+import nihinImg from "@/assets/testimonial-nihin-alabi.png";
+import elizabethImg from "@/assets/testimonial-elizabeth.png";
 
 const testimonials = [
   {
@@ -6,24 +10,28 @@ const testimonials = [
       "Worked on my GuideBook of over 400 pages and not a single complaint afterwards. No regrets working together!",
     name: "Nurse Sugar",
     location: "Texas, USA",
+    image: nurseSugarImg,
   },
   {
     quote:
       "Grace has done outstanding proofreading and editing work for my clients' books. She is professional, dependable, and pays great attention to detail. I highly recommend her services.",
     name: "Tolu Arogundade",
     location: "US, Business Consultant",
+    image: toluImg,
   },
   {
     quote:
       "From editing the manuscript to securing the ISBN, managing the entire publishing process step-by-step, and overseeing the printing of the physical copies, every stage was handled efficiently and with great attention to detail.",
     name: "Nihin Alabi",
     location: "United States of America",
+    image: nihinImg,
   },
   {
     quote:
       "Not only did she help me organize my manuscript but she guided me to actually finish it. Now my book is published, and I feel confident sharing it with the world.",
     name: "Author Elizabeth",
     location: "Nigeria",
+    image: elizabethImg,
   },
 ];
 
@@ -54,11 +62,11 @@ const Testimonials = () => {
                 "{t.quote}"
               </p>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
-                  <span className="text-accent font-bold text-sm">
-                    {t.name.charAt(0)}
-                  </span>
-                </div>
+                <img
+                  src={t.image}
+                  alt={t.name}
+                  className="w-12 h-12 rounded-full object-cover"
+                />
                 <div>
                   <div className="text-sm font-semibold text-foreground">{t.name}</div>
                   <div className="text-xs text-muted-foreground">{t.location}</div>
