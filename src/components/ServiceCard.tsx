@@ -37,7 +37,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
           }}
           className="opacity-0 group-hover:opacity-100 transition-opacity inline-flex items-center gap-1 px-3 py-1.5 bg-accent text-accent-foreground text-xs font-semibold rounded-full"
         >
-          Order <ArrowRight size={12} />
+          Inquire <ArrowRight size={12} />
         </a>
       </div>
 
