@@ -43,18 +43,6 @@ const OrderForm = () => {
       return;
     }
 
-    // Build mailto link and open it
-    const subject = encodeURIComponent(
-      `Inquiry: ${selectedServiceData?.title || "Service"}`
-    );
-    const body = encodeURIComponent(
-      `Name: ${form.fullName}\nEmail: ${form.email}\nService: ${selectedServiceData?.title}\n\nProject Details:\n${form.details}`
-    );
-    window.open(
-      `mailto:services@eyelightpublishing.com?subject=${subject}&body=${body}`,
-      "_blank"
-    );
-
     toast({
       title: "Inquiry Sent! ✉️",
       description: "We'll review your inquiry and get back to you within 24-48 hours.",

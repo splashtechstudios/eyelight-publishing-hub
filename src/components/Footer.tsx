@@ -5,12 +5,28 @@ const Footer = () => {
   return (
     <footer id="contact" className="bg-foreground text-background py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          <div className="md:col-span-1">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div>
             <img src={logo} alt="Eyelight Publishing" className="h-10 mb-4 rounded" />
-            <p className="text-sm opacity-60 leading-relaxed">
+            <p className="text-sm opacity-60 leading-relaxed mb-4">
               Professional publishing services for authors, thought leaders, and experts worldwide.
             </p>
+            <div className="space-y-2">
+              <a
+                href="mailto:services@eyelightpublishing.com"
+                className="flex items-center gap-2 text-sm opacity-60 hover:opacity-100 transition-opacity"
+              >
+                <Mail size={14} />
+                services@eyelightpublishing.com
+              </a>
+              <a
+                href="tel:+2349085181361"
+                className="flex items-center gap-2 text-sm opacity-60 hover:opacity-100 transition-opacity"
+              >
+                <Phone size={14} />
+                +234 908 518 1361
+              </a>
+            </div>
           </div>
 
           <div>
@@ -31,19 +47,6 @@ const Footer = () => {
               <li>Publishing & Distribution</li>
               <li>Book Marketing</li>
             </ul>
-          </div>
-
-          <div>
-            <h4 className="font-semibold mb-4 text-sm uppercase tracking-widest opacity-80">Contact</h4>
-            <div className="space-y-3">
-              <a
-                href="mailto:services@eyelightpublishing.com"
-                className="flex items-center gap-2 text-sm opacity-60 hover:opacity-100 transition-opacity"
-              >
-                <Mail size={14} />
-                services@eyelightpublishing.com
-              </a>
-            </div>
           </div>
         </div>
 
