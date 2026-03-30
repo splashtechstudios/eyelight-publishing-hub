@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { services } from "./Services";
 import { useToast } from "@/hooks/use-toast";
+import { MessageCircle, Mail, ArrowLeft } from "lucide-react";
 
 const OrderForm = () => {
   const { toast } = useToast();
@@ -8,18 +9,12 @@ const OrderForm = () => {
   const [form, setForm] = useState({
     fullName: "",
     email: "",
-    phone: "",
-    bookTitle: "",
-    wordCount: "",
-    genre: "",
     details: "",
   });
 
-  // Listen for service selection from ServiceCard
   useEffect(() => {
     const handler = (e: CustomEvent) => {
       setSelectedService(e.detail);
-      // Auto-scroll is handled by the ServiceCard
     };
     window.addEventListener("select-service", handler as EventListener);
     return () => window.removeEventListener("select-service", handler as EventListener);
@@ -39,61 +34,34 @@ const OrderForm = () => {
       toast({ title: "Please select a service", variant: "destructive" });
       return;
     }
-    if (!form.fullName || !form.email) {
+    if (!form.fullName.trim() || !form.email.trim()) {
       toast({ title: "Please fill in required fields", variant: "destructive" });
       return;
     }
-
-    // For services with price, trigger Paystack
-    if (selectedServiceData && selectedServiceData.amount > 0) {
-      initiatePaystack();
-    } else {
-      // For free/custom services, just submit the form
-      toast({
-        title: "Request Submitted!",
-        description: `We'll get back to you at ${form.email} with details about ${selectedServiceData?.title}.`,
-      });
-    }
-  };
-
-  const initiatePaystack = () => {
-    const paystackKey = (window as any).__PAYSTACK_PUBLIC_KEY__;
-    if (!paystackKey) {
-      toast({
-        title: "Payment Setup Required",
-        description: "Paystack integration is being configured. Please contact services@eyelightpublishing.com to complete your order.",
-      });
+    if (!form.details.trim()) {
+      toast({ title: "Please tell us about your project", variant: "destructive" });
       return;
     }
 
-    const handler = (window as any).PaystackPop?.setup({
-      key: paystackKey,
-      email: form.email,
-      amount: (selectedServiceData?.amount || 0) * 100, // Paystack uses kobo/cents
-      currency: "USD",
-      ref: `EYE-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-      metadata: {
-        custom_fields: [
-          { display_name: "Service", variable_name: "service", value: selectedServiceData?.title },
-          { display_name: "Book Title", variable_name: "book_title", value: form.bookTitle },
-          { display_name: "Full Name", variable_name: "full_name", value: form.fullName },
-          { display_name: "Phone", variable_name: "phone", value: form.phone },
-          { display_name: "Word Count", variable_name: "word_count", value: form.wordCount },
-          { display_name: "Genre", variable_name: "genre", value: form.genre },
-          { display_name: "Details", variable_name: "details", value: form.details },
-        ],
-      },
-      callback: (response: any) => {
-        toast({
-          title: "Payment Successful! 🎉",
-          description: `Reference: ${response.reference}. We'll be in touch shortly.`,
-        });
-      },
-      onClose: () => {
-        toast({ title: "Payment cancelled", description: "You can try again anytime." });
-      },
+    // Build mailto link and open it
+    const subject = encodeURIComponent(
+      `Inquiry: ${selectedServiceData?.title || "Service"}`
+    );
+    const body = encodeURIComponent(
+      `Name: ${form.fullName}\nEmail: ${form.email}\nService: ${selectedServiceData?.title}\n\nProject Details:\n${form.details}`
+    );
+    window.open(
+      `mailto:services@eyelightpublishing.com?subject=${subject}&body=${body}`,
+      "_blank"
+    );
+
+    toast({
+      title: "Inquiry Sent! ✉️",
+      description: "We'll review your inquiry and get back to you within 24-48 hours.",
     });
-    handler?.openIframe();
+
+    setForm({ fullName: "", email: "", details: "" });
+    setSelectedService("");
   };
 
   const inputClasses =
@@ -102,172 +70,168 @@ const OrderForm = () => {
   return (
     <section id="order" className="py-16 lg:py-24 bg-muted">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto">
-          <div className="text-center mb-10">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3">
-              Get Started
-            </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Order a <span className="text-accent">Service</span>
-            </h2>
+        {/* Header */}
+        <div className="max-w-3xl mb-10">
+          <a
+            href="#services"
+            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-accent transition-colors mb-6"
+          >
+            <ArrowLeft size={14} />
+            Back to Services
+          </a>
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3">
+            Let's Discuss Your <span className="text-accent">Project</span>
+          </h2>
+          {selectedServiceData ? (
             <p className="text-muted-foreground">
-              Fill in your project details and proceed to payment. We'll begin work
-              within 24 hours of receiving your order.
+              You're interested in{" "}
+              <span className="font-semibold text-foreground">
+                {selectedServiceData.title}
+              </span>
+              . Fill out the form below and we'll get back to you within 24-48 hours.
             </p>
+          ) : (
+            <p className="text-muted-foreground">
+              Fill out the form below and we'll get back to you within 24-48 hours.
+            </p>
+          )}
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+          {/* Form - 2 columns */}
+          <div className="lg:col-span-2">
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-semibold text-accent mb-2">
+                    Your Name <span className="text-accent">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="fullName"
+                    value={form.fullName}
+                    onChange={handleChange}
+                    placeholder="John Doe"
+                    required
+                    maxLength={100}
+                    className={inputClasses}
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-accent mb-2">
+                    Email Address <span className="text-accent">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={form.email}
+                    onChange={handleChange}
+                    placeholder="Email Address"
+                    required
+                    maxLength={255}
+                    className={inputClasses}
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold text-accent mb-2">
+                  Service Interested In <span className="text-accent">*</span>
+                </label>
+                <select
+                  value={selectedService}
+                  onChange={(e) => setSelectedService(e.target.value)}
+                  className={inputClasses}
+                >
+                  <option value="">Select a service...</option>
+                  {services.map((s) => (
+                    <option key={s.id} value={s.id}>
+                      {s.title} ({s.price})
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold text-accent mb-2">
+                  Tell Me About Your Project <span className="text-accent">*</span>
+                </label>
+                <textarea
+                  name="details"
+                  value={form.details}
+                  onChange={handleChange}
+                  rows={6}
+                  maxLength={2000}
+                  placeholder="What are you working on? What stage is your project? What are your goals and timeline?"
+                  className={inputClasses + " resize-none"}
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="px-8 py-3.5 bg-accent text-accent-foreground font-semibold rounded-lg hover:opacity-90 transition-opacity text-sm uppercase tracking-wider"
+              >
+                Send Inquiry
+              </button>
+            </form>
           </div>
 
-          <form
-            onSubmit={handleSubmit}
-            className="bg-card rounded-2xl border border-border p-6 lg:p-8 shadow-card space-y-5"
-          >
-            {/* Service Selection */}
-            <div>
-              <label className="block text-sm font-semibold text-foreground mb-2">
-                Select Service *
-              </label>
-              <select
-                value={selectedService}
-                onChange={(e) => setSelectedService(e.target.value)}
-                className={inputClasses}
-              >
-                <option value="">Choose a service...</option>
-                {services.map((s) => (
-                  <option key={s.id} value={s.id}>
-                    {s.title} — {s.price}
-                  </option>
-                ))}
-              </select>
+          {/* Sidebar */}
+          <div className="space-y-6">
+            {/* Direct Contact */}
+            <div className="bg-card rounded-xl border border-border p-6">
+              <h3 className="text-base font-semibold text-foreground mb-4">
+                Prefer Direct Contact?
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <a
+                    href="https://wa.me/message/eyelightpublishing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-sm text-muted-foreground hover:text-accent transition-colors"
+                  >
+                    <MessageCircle size={16} className="text-accent shrink-0" />
+                    Message on WhatsApp
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="mailto:services@eyelightpublishing.com"
+                    className="flex items-center gap-3 text-sm text-muted-foreground hover:text-accent transition-colors"
+                  >
+                    <Mail size={16} className="text-accent shrink-0" />
+                    services@eyelightpublishing.com
+                  </a>
+                </li>
+              </ul>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-semibold text-foreground mb-2">
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  name="fullName"
-                  value={form.fullName}
-                  onChange={handleChange}
-                  placeholder="John Doe"
-                  required
-                  className={inputClasses}
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold text-foreground mb-2">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={form.email}
-                  onChange={handleChange}
-                  placeholder="john@example.com"
-                  required
-                  className={inputClasses}
-                />
-              </div>
+            {/* What Happens Next */}
+            <div className="bg-card rounded-xl border border-border p-6">
+              <h3 className="text-base font-semibold text-foreground mb-4">
+                What Happens Next?
+              </h3>
+              <ol className="space-y-3 text-sm text-muted-foreground">
+                <li className="flex gap-3">
+                  <span className="font-semibold text-accent shrink-0">1.</span>
+                  We'll review your inquiry within 24-48 hours
+                </li>
+                <li className="flex gap-3">
+                  <span className="font-semibold text-accent shrink-0">2.</span>
+                  We'll schedule a discovery call to discuss your project
+                </li>
+                <li className="flex gap-3">
+                  <span className="font-semibold text-accent shrink-0">3.</span>
+                  We'll send a tailored proposal with scope and timeline
+                </li>
+                <li className="flex gap-3">
+                  <span className="font-semibold text-accent shrink-0">4.</span>
+                  Once agreed, we begin the collaboration
+                </li>
+              </ol>
             </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-semibold text-foreground mb-2">
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={form.phone}
-                  onChange={handleChange}
-                  placeholder="+234 800 000 0000"
-                  className={inputClasses}
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold text-foreground mb-2">
-                  Book Title
-                </label>
-                <input
-                  type="text"
-                  name="bookTitle"
-                  value={form.bookTitle}
-                  onChange={handleChange}
-                  placeholder="My Book Title"
-                  className={inputClasses}
-                />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-semibold text-foreground mb-2">
-                  Estimated Word Count
-                </label>
-                <input
-                  type="text"
-                  name="wordCount"
-                  value={form.wordCount}
-                  onChange={handleChange}
-                  placeholder="e.g. 30,000"
-                  className={inputClasses}
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold text-foreground mb-2">
-                  Genre / Category
-                </label>
-                <input
-                  type="text"
-                  name="genre"
-                  value={form.genre}
-                  onChange={handleChange}
-                  placeholder="e.g. Self-Help, Memoir"
-                  className={inputClasses}
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm font-semibold text-foreground mb-2">
-                Project Details
-              </label>
-              <textarea
-                name="details"
-                value={form.details}
-                onChange={handleChange}
-                rows={4}
-                placeholder="Tell us about your project, any specific requirements, deadlines, or preferences..."
-                className={inputClasses + " resize-none"}
-              />
-            </div>
-
-            {/* Price Summary */}
-            {selectedServiceData && (
-              <div className="bg-secondary rounded-lg p-4 flex items-center justify-between">
-                <div>
-                  <div className="text-sm font-semibold text-foreground">
-                    {selectedServiceData.title}
-                  </div>
-                  <div className="text-xs text-muted-foreground">
-                    {selectedServiceData.priceNote}
-                  </div>
-                </div>
-                <div className="text-lg font-bold font-mono text-accent">
-                  {selectedServiceData.price}
-                </div>
-              </div>
-            )}
-
-            <button
-              type="submit"
-              className="w-full py-3.5 bg-accent text-accent-foreground font-semibold rounded-lg hover:opacity-90 transition-opacity text-sm"
-            >
-              {selectedServiceData && selectedServiceData.amount > 0
-                ? "Proceed to Payment"
-                : "Submit Request"}
-            </button>
-          </form>
+          </div>
         </div>
       </div>
     </section>
