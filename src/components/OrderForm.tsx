@@ -43,18 +43,6 @@ const OrderForm = () => {
       return;
     }
 
-    // Build mailto link and open it
-    const subject = encodeURIComponent(
-      `Inquiry: ${selectedServiceData?.title || "Service"}`
-    );
-    const body = encodeURIComponent(
-      `Name: ${form.fullName}\nEmail: ${form.email}\nService: ${selectedServiceData?.title}\n\nProject Details:\n${form.details}`
-    );
-    window.open(
-      `mailto:services@eyelightpublishing.com?subject=${subject}&body=${body}`,
-      "_blank"
-    );
-
     toast({
       title: "Inquiry Sent! ✉️",
       description: "We'll review your inquiry and get back to you within 24-48 hours.",
@@ -186,7 +174,7 @@ const OrderForm = () => {
               <ul className="space-y-3">
                 <li>
                   <a
-                    href="https://wa.me/message/eyelightpublishing"
+                    href="https://wa.me/2349085181361"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 text-sm text-muted-foreground hover:text-accent transition-colors"
