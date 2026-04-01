@@ -28,7 +28,9 @@ const OrderForm = () => {
 
   const selectedServiceData = services.find((s) => s.id === selectedService);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!selectedService) {
       toast({ title: "Please select a service", variant: "destructive" });
@@ -43,13 +45,39 @@ const OrderForm = () => {
       return;
     }
 
-    toast({
-      title: "Inquiry Sent! ✉️",
-      description: "We'll review your inquiry and get back to you within 24-48 hours.",
-    });
+    setIsSubmitting(true);
+    try {
+      const response = await fetch("https://eyelightpubmails.onrender.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName: form.fullName.trim(),
+          email: form.email.trim(),
+          projectType: selectedServiceData?.title || selectedService,
+          projectDescription: form.details.trim(),
+        }),
+      });
 
-    setForm({ fullName: "", email: "", details: "" });
-    setSelectedService("");
+      if (!response.ok) {
+        throw new Error("Failed to send inquiry");
+      }
+
+      toast({
+        title: "Inquiry Sent! ✉️",
+        description: "We'll review your inquiry and get back to you within 24-48 hours.",
+      });
+
+      setForm({ fullName: "", email: "", details: "" });
+      setSelectedService("");
+    } catch {
+      toast({
+        title: "Something went wrong",
+        description: "Please try again or contact us directly via WhatsApp or email.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const inputClasses =
@@ -157,9 +185,10 @@ const OrderForm = () => {
 
               <button
                 type="submit"
-                className="px-8 py-3.5 bg-accent text-accent-foreground font-semibold rounded-lg hover:opacity-90 transition-opacity text-sm uppercase tracking-wider"
+                disabled={isSubmitting}
+                className="px-8 py-3.5 bg-accent text-accent-foreground font-semibold rounded-lg hover:opacity-90 transition-opacity text-sm uppercase tracking-wider disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Send Inquiry
+                {isSubmitting ? "Sending..." : "Send Inquiry"}
               </button>
             </form>
           </div>
