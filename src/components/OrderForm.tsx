@@ -185,9 +185,10 @@ const OrderForm = () => {
 
               <button
                 type="submit"
-                className="px-8 py-3.5 bg-accent text-accent-foreground font-semibold rounded-lg hover:opacity-90 transition-opacity text-sm uppercase tracking-wider"
+                disabled={isSubmitting}
+                className="px-8 py-3.5 bg-accent text-accent-foreground font-semibold rounded-lg hover:opacity-90 transition-opacity text-sm uppercase tracking-wider disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Send Inquiry
+                {isSubmitting ? "Sending..." : "Send Inquiry"}
               </button>
             </form>
           </div>
