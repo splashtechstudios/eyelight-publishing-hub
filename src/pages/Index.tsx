@@ -22,6 +22,7 @@ const Index = () => {
       <OrderForm />
       <CTA />
       <Footer />
+      <WhatsAppWidget />
     </div>
   );
 };
