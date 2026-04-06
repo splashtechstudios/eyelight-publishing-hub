@@ -69,12 +69,6 @@ const OrderForm = () => {
 
       setForm({ fullName: "", email: "", details: "" });
       setSelectedService("");
-    } catch {
-      toast({
-        title: "Something went wrong",
-        description: "Please try again or contact us directly via WhatsApp or email.",
-        variant: "destructive",
-      });
     } catch (error: any) {
       const isNetworkError = error?.message === "Failed to fetch" || !navigator.onLine;
       toast({
