@@ -8,6 +8,7 @@ import FAQ from "@/components/FAQ";
 import OrderForm from "@/components/OrderForm";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
 
 const Index = () => {
   return (
@@ -22,6 +23,7 @@ const Index = () => {
       <OrderForm />
       <CTA />
       <Footer />
+      <WhatsAppWidget />
     </div>
   );
 };

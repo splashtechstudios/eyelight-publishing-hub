@@ -26,13 +26,13 @@ const Hero = () => {
               Writer • Ghostwriter • Editor • Publishing Coach
             </p>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.4rem] font-bold text-primary-foreground leading-[1.15] mb-6">
-              Turn What You Know Into a Book That Builds Your{" "}
-              <span className="text-accent">Legacy</span>
+              We Help You Sound Like{" "}
+              <span className="text-accent">Your Best Self</span> — In Print
             </h1>
             <p className="text-base lg:text-lg text-primary-foreground/70 max-w-lg mb-8 leading-relaxed">
-              We've worked on over 335 books and content projects for leaders and experts
-              around the world. If your story matters, it deserves to be written, structured,
-              and published well.
+              Your ideas deserve to be heard exactly the way you mean them.
+              We preserve your authentic voice while refining every word,
+              so your book reads with clarity, authority, and heart.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 mb-10">
@@ -66,14 +66,14 @@ const Hero = () => {
             <div className="relative w-full max-w-md xl:max-w-lg">
               <img
                 src={heroImage}
-                alt="Professional publishing services"
+                alt="Professional book publishing and ghostwriting services"
                 className="w-full h-auto rounded-t-2xl object-cover"
               />
               {/* Badge */}
               <div className="absolute bottom-6 left-6 bg-card/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-card">
                 <div className="flex items-center gap-2 text-xs font-semibold text-foreground">
                   <span className="w-2 h-2 bg-accent rounded-full" />
-                  Professional Publishing
+                  Your Voice, Perfected
                 </div>
               </div>
             </div>
