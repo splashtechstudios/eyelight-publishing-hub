@@ -47,7 +47,7 @@ const OrderForm = () => {
 
     setIsSubmitting(true);
     try {
-      const response = await fetch("https://eyelightpubmails.onrender.com", {
+      const response = await fetch("https://eyelightpubmails.onrender.com/api/forms", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
