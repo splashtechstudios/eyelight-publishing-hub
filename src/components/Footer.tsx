@@ -50,9 +50,20 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-background/10 mt-12 pt-8 text-center">
+        <div className="border-t border-background/10 mt-12 pt-8 text-center space-y-2">
           <p className="text-xs opacity-40">
             © {new Date().getFullYear()} Eyelight Publishing. All rights reserved.
+          </p>
+          <p className="text-xs opacity-40">
+            Built by{" "}
+            <a
+              href="https://www.splashtechstudios.com.ng/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-100 underline transition-opacity"
+            >
+              SPC
+            </a>
           </p>
         </div>
       </div>
