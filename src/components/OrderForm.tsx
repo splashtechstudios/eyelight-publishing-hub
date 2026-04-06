@@ -69,10 +69,15 @@ const OrderForm = () => {
 
       setForm({ fullName: "", email: "", details: "" });
       setSelectedService("");
-    } catch {
+    } catch (error: any) {
+      const isNetworkError = error?.message === "Failed to fetch" || !navigator.onLine;
       toast({
-        title: "Something went wrong",
-        description: "Please try again or contact us directly via WhatsApp or email.",
+        title: isNetworkError
+          ? "Service Temporarily Unavailable"
+          : "Something went wrong",
+        description: isNetworkError
+          ? "Our server is currently offline. Please reach out to us directly via WhatsApp or email below."
+          : "Please try again or contact us directly via WhatsApp or email.",
         variant: "destructive",
       });
     } finally {
