@@ -69,7 +69,8 @@ const Testimonials = () => {
           </p>
         </div>
 
-        {/* Featured Testimonial */}
+        {/* Featured Testimonial - Apostle Femi Lazarus (commented out) */}
+        {/*
         <div className="mb-10 bg-primary rounded-2xl overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-5 items-stretch">
             <div className="lg:col-span-2 relative">
@@ -99,6 +100,7 @@ const Testimonials = () => {
             </div>
           </div>
         </div>
+        */}
 
         {/* Grid Testimonials */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
