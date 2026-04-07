@@ -42,19 +42,17 @@ const HowItWorks = () => {
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto">
-          {steps.map((step, i) => (
-            <div key={step.num} className="relative flex gap-6 pb-10 last:pb-0">
-              {i < steps.length - 1 && (
-                <div className="absolute left-[22px] top-12 w-px h-[calc(100%-2rem)] bg-border" />
-              )}
-              <div className="w-11 h-11 rounded-full bg-primary text-primary-foreground flex items-center justify-center shrink-0 text-sm font-bold z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {steps.map((step) => (
+            <div
+              key={step.num}
+              className="bg-card rounded-xl border border-border p-6 text-center hover:shadow-card transition-shadow"
+            >
+              <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center mx-auto mb-4 text-sm font-bold">
                 {step.num}
               </div>
-              <div className="pt-2">
-                <h3 className="text-base font-semibold text-foreground mb-1">{step.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
-              </div>
+              <h3 className="text-base font-semibold text-foreground mb-2">{step.title}</h3>
+              <p className="text-sm text-muted-foreground">{step.desc}</p>
             </div>
           ))}
         </div>
