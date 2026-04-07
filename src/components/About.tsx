@@ -21,17 +21,21 @@ const About = () => {
               <span className="w-1 h-1 bg-accent rounded-full" /> About Us
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-5">
-              Eyelight <span className="text-accent">Publishing</span>
+              About Eyelight <span className="text-accent">Publishing</span>
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              We are a team of writers, ghostwriters, editors, and publishing coaches who believe 
-              every leader, expert, and visionary has a book in them — one that can shape lives, 
-              influence industries, and leave a lasting legacy.
+              Eyelight Publishing exists for one reason: to help serious authors produce books
+              that are clear, structured, and professionally done.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              We are a team of writers, editors, and publishing specialists who understand that
+              a book is more than words on a page. It is a representation of your thinking,
+              your experience, and your authority.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              Over the years, we've helped over 335 authors and thought leaders take their ideas 
-              from scattered thoughts to finished, published works. Our approach is simple: clarity, 
-              structure, and a commitment to finishing what we start together.
+              Over the years, we've worked with over 335 authors—helping them move from
+              scattered ideas to finished, published books they are proud to attach their names to.
+              We don't rush books out. We develop them properly.
             </p>
 
             <a
@@ -48,7 +52,7 @@ const About = () => {
                 </div>
                 <div>
                   <div className="text-sm font-semibold text-foreground">335+ Projects</div>
-                  <div className="text-xs text-muted-foreground">Books published worldwide</div>
+                  <div className="text-xs text-muted-foreground">Books delivered worldwide</div>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -57,7 +61,7 @@ const About = () => {
                 </div>
                 <div>
                   <div className="text-sm font-semibold text-foreground">Global Reach</div>
-                  <div className="text-xs text-muted-foreground">Clients across continents</div>
+                  <div className="text-xs text-muted-foreground">Authors across continents</div>
                 </div>
               </div>
             </div>

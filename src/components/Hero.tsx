@@ -2,9 +2,9 @@ import { ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
 
 const stats = [
-  { value: "335+", label: "Books & Projects" },
-  { value: "10+", label: "Years Experience" },
-  { value: "Global", label: "Client Base" },
+  { value: "335+", label: "Books & Projects Delivered" },
+  { value: "10+", label: "Years Editorial & Publishing Experience" },
+  { value: "Global", label: "Authors Across Continents" },
 ];
 
 const categories = [
@@ -13,6 +13,7 @@ const categories = [
   "Pastors",
   "Business Owners",
   "Coaches",
+  "Professionals & Experts",
 ];
 
 const Hero = () => {
@@ -23,30 +24,33 @@ const Hero = () => {
           {/* Left Content */}
           <div className="py-12 lg:py-20">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-5">
-              Writer • Ghostwriter • Editor • Publishing Coach
+              Writer • Ghostwriter • Editor • Publishing Partner
             </p>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.4rem] font-bold text-primary-foreground leading-[1.15] mb-6">
-              We Help You Sound Like{" "}
-              <span className="text-accent">Your Best Self</span> — In Print
+              We Don't Just Publish Books —{" "}
+              <span className="text-accent">We Help You Get It Right</span>
             </h1>
+            <p className="text-base lg:text-lg text-primary-foreground/70 max-w-lg mb-4 leading-relaxed">
+              Your book is not just content.
+              It carries your voice, your thinking, and your credibility.
+            </p>
             <p className="text-base lg:text-lg text-primary-foreground/70 max-w-lg mb-8 leading-relaxed">
-              Your ideas deserve to be heard exactly the way you mean them.
-              We preserve your authentic voice while refining every word,
-              so your book reads with clarity, authority, and heart.
+              We work with serious authors to turn raw ideas into clear, structured,
+              professionally published books you can stand behind—anywhere.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 mb-10">
               <a
-                href="#services"
+                href="#order"
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-accent text-accent-foreground text-sm font-semibold rounded-full hover:opacity-90 transition-opacity"
               >
-                Order a Service <ArrowRight size={16} />
+                Work With Us <ArrowRight size={16} />
               </a>
               <a
-                href="#how-it-works"
+                href="#services"
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-primary-foreground/20 text-primary-foreground text-sm font-semibold rounded-full hover:bg-primary-foreground/5 transition-colors"
               >
-                How It Works
+                Explore Services
               </a>
             </div>
 
@@ -73,7 +77,7 @@ const Hero = () => {
               <div className="absolute bottom-6 left-6 bg-card/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-card">
                 <div className="flex items-center gap-2 text-xs font-semibold text-foreground">
                   <span className="w-2 h-2 bg-accent rounded-full" />
-                  Your Voice, Perfected
+                  Your Voice, Done Right
                 </div>
               </div>
             </div>
@@ -81,11 +85,11 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Categories strip */}
+      {/* Who We Work With strip */}
       <div className="bg-primary-foreground/5 border-t border-primary-foreground/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-3 py-4">
-            <span className="text-xs text-primary-foreground/50 font-medium mr-2">We Serve:</span>
+            <span className="text-xs text-primary-foreground/50 font-medium mr-2">Who We Work With:</span>
             {categories.map((cat) => (
               <span
                 key={cat}

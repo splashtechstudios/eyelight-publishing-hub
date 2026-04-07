@@ -101,25 +101,21 @@ const OrderForm = () => {
             Back to Services
           </a>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3">
-            Let's Discuss Your <span className="text-accent">Project</span>
+            Let's Work On Your <span className="text-accent">Book</span>
           </h2>
-          {selectedServiceData ? (
-            <p className="text-muted-foreground">
-              You're interested in{" "}
-              <span className="font-semibold text-foreground">
-                {selectedServiceData.title}
-              </span>
-              . Fill out the form below and we'll get back to you within 24-48 hours.
-            </p>
-          ) : (
-            <p className="text-muted-foreground">
-              Fill out the form below and we'll get back to you within 24-48 hours.
-            </p>
-          )}
+          <p className="text-muted-foreground">
+            {selectedServiceData
+              ? <>You're interested in{" "}
+                  <span className="font-semibold text-foreground">
+                    {selectedServiceData.title}
+                  </span>
+                  . Tell us what you're working on, where you are in the process, and what you need.</>
+              : "Tell us what you're working on, where you are in the process, and what you need."}
+          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
-          {/* Form - 2 columns */}
+          {/* Form */}
           <div className="lg:col-span-2">
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -175,7 +171,7 @@ const OrderForm = () => {
 
               <div>
                 <label className="block text-sm font-semibold text-accent mb-2">
-                  Tell Me About Your Project <span className="text-accent">*</span>
+                  Tell Us About Your Project <span className="text-accent">*</span>
                 </label>
                 <textarea
                   name="details"
@@ -200,7 +196,6 @@ const OrderForm = () => {
 
           {/* Sidebar */}
           <div className="space-y-6">
-            {/* Direct Contact */}
             <div className="bg-card rounded-xl border border-border p-6">
               <h3 className="text-base font-semibold text-foreground mb-4">
                 Prefer Direct Contact?
@@ -229,7 +224,6 @@ const OrderForm = () => {
               </ul>
             </div>
 
-            {/* What Happens Next */}
             <div className="bg-card rounded-xl border border-border p-6">
               <h3 className="text-base font-semibold text-foreground mb-4">
                 What Happens Next?
@@ -237,19 +231,19 @@ const OrderForm = () => {
               <ol className="space-y-3 text-sm text-muted-foreground">
                 <li className="flex gap-3">
                   <span className="font-semibold text-accent shrink-0">1.</span>
-                  We'll review your inquiry within 24-48 hours
+                  We review your inquiry (24–48 hours)
                 </li>
                 <li className="flex gap-3">
                   <span className="font-semibold text-accent shrink-0">2.</span>
-                  We'll schedule a discovery call to discuss your project
+                  We schedule a discovery call
                 </li>
                 <li className="flex gap-3">
                   <span className="font-semibold text-accent shrink-0">3.</span>
-                  We'll send a tailored proposal with scope and timeline
+                  We send a tailored proposal
                 </li>
                 <li className="flex gap-3">
                   <span className="font-semibold text-accent shrink-0">4.</span>
-                  Once agreed, we begin the collaboration
+                  We begin the project
                 </li>
               </ol>
             </div>

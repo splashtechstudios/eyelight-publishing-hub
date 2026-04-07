@@ -27,21 +27,21 @@ const testimonials = [
       "Grace has done outstanding proofreading and editing work for my clients' books. She is professional, dependable, and pays great attention to detail. I highly recommend her services.",
     name: "Tolu Arogundade",
     location: "US, Business Consultant",
-    image: nihinImg,
+    image: toluImg,
   },
   {
     quote:
       "From editing the manuscript to securing the ISBN, managing the entire publishing process step-by-step, and overseeing the printing of the physical copies, every stage was handled efficiently and with great attention to detail.",
     name: "Nihin Alabi",
     location: "United States of America",
-    image: elizabethImg,
+    image: nihinImg,
   },
   {
     quote:
       "Not only did she help me organize my manuscript but she guided me to actually finish it. Now my book is published, and I feel confident sharing it with the world.",
     name: "Author Elizabeth",
     location: "Nigeria",
-    image: toluImg,
+    image: elizabethImg,
   },
   {
     quote:
@@ -61,10 +61,11 @@ const Testimonials = () => {
             <span className="w-1 h-1 bg-accent rounded-full" /> Testimonials
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Client <span className="text-accent">Testimonials</span>
+            What Our Clients <span className="text-accent">Say</span>
           </h2>
           <p className="text-muted-foreground max-w-xl">
-            Hear what our satisfied clients have to say about our services.
+            We've worked with authors across different industries and stages—and
+            the feedback is consistent: clarity, professionalism, and results.
           </p>
         </div>
 
