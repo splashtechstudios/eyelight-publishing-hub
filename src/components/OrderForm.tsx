@@ -9,7 +9,8 @@ const OrderForm = () => {
   const [form, setForm] = useState({
     fullName: "",
     email: "",
-    details: "",
+    projectDescription: "",
+    projectType: "",
   });
 
   useEffect(() => {
@@ -40,7 +41,7 @@ const OrderForm = () => {
       toast({ title: "Please fill in required fields", variant: "destructive" });
       return;
     }
-    if (!form.details.trim()) {
+    if (!form.projectDescription.trim()) {
       toast({ title: "Please tell us about your project", variant: "destructive" });
       return;
     }
@@ -53,8 +54,8 @@ const OrderForm = () => {
         body: JSON.stringify({
           fullName: form.fullName.trim(),
           email: form.email.trim(),
-          projectType: selectedServiceData?.title || selectedService,
-          projectDescription: form.details.trim(),
+          projectType: selectedService,
+          projectDescription: form.projectDescription.trim(),
         }),
       });
 
@@ -67,7 +68,7 @@ const OrderForm = () => {
         description: "We'll review your inquiry and get back to you within 24 to 48 hours.",
       });
 
-      setForm({ fullName: "", email: "", details: "" });
+      setForm({ fullName: "", email: "", projectDescription: "",projectType: "" });
       setSelectedService("");
     } catch (error: any) {
       const isNetworkError = error?.message === "Failed to fetch" || !navigator.onLine;
@@ -174,8 +175,8 @@ const OrderForm = () => {
                   Tell Us About Your Project <span className="text-accent">*</span>
                 </label>
                 <textarea
-                  name="details"
-                  value={form.details}
+                  name="projectDescription"
+                  value={form.projectDescription}
                   onChange={handleChange}
                   rows={6}
                   maxLength={2000}
