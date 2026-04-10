@@ -8,7 +8,7 @@ import apostleFemiImg from "@/assets/testimonial-apostle-femi.webp";
 
 const featuredTestimonial = {
   quote:
-    "Grace didn't just write my book — she captured my voice, my heart, and my message in a way I never thought possible. Working with Eyelight Publishing was a divine experience. From start to finish, the professionalism, attention to detail, and genuine care for the project exceeded all my expectations. I wholeheartedly endorse their work.",
+    "Grace didn't just write my book, she captured my voice, my heart, and my message in a way I never thought possible. Working with Eyelight Publishing was a divine experience. From start to finish, the professionalism, attention to detail, and genuine care for the project exceeded all my expectations. I wholeheartedly endorse their work.",
   name: "Apostle Femi Lazarus",
   location: "Lagos, Nigeria",
   image: apostleFemiImg,
@@ -64,7 +64,7 @@ const Testimonials = () => {
             What Our Clients <span className="text-accent">Say</span>
           </h2>
           <p className="text-muted-foreground max-w-xl">
-            We've worked with authors across different industries and stages—and
+            We've worked with authors across different industries and stages, and
             the feedback is consistent: clarity, professionalism, and results.
           </p>
         </div>

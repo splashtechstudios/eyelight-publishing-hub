@@ -21,7 +21,7 @@ const VisionMission = () => {
             <h3 className="text-lg font-bold text-foreground mb-3">Our Vision</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
               To become a trusted publishing brand that authors confidently entrust with their
-              life's work—and are willing to invest in because of the standard we uphold.
+              life's work, and are willing to invest in because of the standard we uphold.
             </p>
           </div>
 
@@ -32,7 +32,7 @@ const VisionMission = () => {
             <h3 className="text-lg font-bold text-foreground mb-3">Our Mission</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
               To help serious authors transform their ideas into professionally published books
-              that are clear, compelling, and built to stand out—while positioning them as credible
+              that are clear, compelling, and built to stand out, while positioning them as credible
               voices through excellence in editing, design, and production.
             </p>
           </div>

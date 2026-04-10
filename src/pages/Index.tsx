@@ -9,6 +9,7 @@ import HowItWorks from "@/components/HowItWorks";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import OrderForm from "@/components/OrderForm";
+import SelectedWorks from "@/components/SelectedWorks";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
@@ -25,6 +26,7 @@ const Index = () => {
       <Services />
       <HowItWorks />
       <Testimonials />
+      <SelectedWorks />
       <FAQ />
       <OrderForm />
       <CTA />
