@@ -9,7 +9,7 @@ const problems = [
   },
   {
     problem: '"The process feels overwhelming."',
-    solution: "We guide you through every stage—from manuscript to publication.",
+    solution: "We guide you through every stage, from manuscript to publication.",
   },
   {
     problem: '"I want to be taken seriously."',

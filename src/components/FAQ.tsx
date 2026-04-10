@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     q: "How long does a typical project take?",
-    a: "Timelines vary by service: Editorial services take 7–10 business days, interior layout design 3–5 days, cover design 7 days, client review 3–5 days, and book production 7–10 business days. Complex projects may take longer depending on manuscript length.",
+    a: "Timelines vary by service: Editorial services take 4 to 6 weeks, interior layout design 3 to 5 days, cover design 7 days, client review 3 to 5 days, and book production 2 weeks. Complex projects may take longer depending on manuscript length.",
   },
   {
     q: "Do you work with first-time authors?",

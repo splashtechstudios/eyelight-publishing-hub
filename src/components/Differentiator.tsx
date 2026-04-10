@@ -37,7 +37,7 @@ const Differentiator = () => {
             </p>
             <p className="text-muted-foreground leading-relaxed mb-6">
               We don't operate as a basic service provider. We work as a partner in your
-              process—helping you:
+              process, helping you:
             </p>
 
             <ul className="space-y-3 mb-6">
