@@ -128,7 +128,7 @@ const OrderForm = () => {
                     name="fullName"
                     value={form.fullName}
                     onChange={handleChange}
-                    placeholder="John Doe"
+                    placeholder="Clinton Randy"
                     required
                     maxLength={100}
                     className={inputClasses}
