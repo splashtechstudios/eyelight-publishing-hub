@@ -2,12 +2,12 @@ const steps = [
   {
     num: "01",
     title: "Editorial Work",
-    desc: "7–10 business days",
+    desc: "4 to 6 weeks",
   },
   {
     num: "02",
     title: "Interior Layout",
-    desc: "3–5 business days",
+    desc: "3 to 5 business days",
   },
   {
     num: "03",
@@ -17,12 +17,12 @@ const steps = [
   {
     num: "04",
     title: "Review & Approval",
-    desc: "3–5 business days",
+    desc: "3 to 5 business days",
   },
   {
     num: "05",
     title: "Production",
-    desc: "7–10 business days",
+    desc: "2 weeks",
   },
 ];
 

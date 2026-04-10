@@ -64,7 +64,7 @@ const OrderForm = () => {
 
       toast({
         title: "Inquiry Sent! ✉️",
-        description: "We'll review your inquiry and get back to you within 24-48 hours.",
+        description: "We'll review your inquiry and get back to you within 24 to 48 hours.",
       });
 
       setForm({ fullName: "", email: "", details: "" });
@@ -231,7 +231,7 @@ const OrderForm = () => {
               <ol className="space-y-3 text-sm text-muted-foreground">
                 <li className="flex gap-3">
                   <span className="font-semibold text-accent shrink-0">1.</span>
-                  We review your inquiry (24–48 hours)
+                  We review your inquiry (24 to 48 hours)
                 </li>
                 <li className="flex gap-3">
                   <span className="font-semibold text-accent shrink-0">2.</span>

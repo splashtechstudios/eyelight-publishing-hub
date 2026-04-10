@@ -23,20 +23,16 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[80vh]">
           {/* Left Content */}
           <div className="py-12 lg:py-20">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-5">
-              Writer • Ghostwriter • Editor • Publishing Partner
-            </p>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.4rem] font-bold text-primary-foreground leading-[1.15] mb-6">
-              We Don't Just Publish Books —{" "}
-              <span className="text-accent">We Help You Get It Right</span>
+              The rumours are true.{" "}
+              <span className="text-accent">
+                We publish premium books that automatically build you into a credible author
+              </span>
             </h1>
-            <p className="text-base lg:text-lg text-primary-foreground/70 max-w-lg mb-4 leading-relaxed">
-              Your book is not just content.
-              It carries your voice, your thinking, and your credibility.
-            </p>
             <p className="text-base lg:text-lg text-primary-foreground/70 max-w-lg mb-8 leading-relaxed">
-              We work with serious authors to turn raw ideas into clear, structured,
-              professionally published books you can stand behind—anywhere.
+              Your book reflects your voice and credibility. We partner with serious authors
+              to refine their ideas into premium, excellent, keep-worthy, structured,
+              professionally published books designed to stand the test of time.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 mb-10">

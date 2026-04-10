@@ -33,7 +33,7 @@ const About = () => {
               your experience, and your authority.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              Over the years, we've worked with over 335 authors—helping them move from
+              Over the years, we've worked with over 335 authors, helping them move from
               scattered ideas to finished, published books they are proud to attach their names to.
               We don't rush books out. We develop them properly.
             </p>

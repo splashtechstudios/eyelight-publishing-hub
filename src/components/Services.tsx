@@ -121,9 +121,9 @@ export const services = [
     title: "Publishing & Distribution",
     description:
       "We handle the technical side of getting your book out.",
-    price: "₦60,000 / $49",
+    price: "₦60,000 / $100",
     priceNote: "flat rate",
-    amount: 49,
+    amount: 100,
     icon: Globe,
     features: [
       "Amazon KDP & Selar setup",
@@ -173,7 +173,7 @@ const Services = () => {
             Our <span className="text-accent">Services</span>
           </h2>
           <p className="text-muted-foreground max-w-xl">
-            Each service is designed to move your book forward—with clarity and
+            Each service is designed to move your book forward with clarity and
             professional execution at every stage.
           </p>
         </div>
