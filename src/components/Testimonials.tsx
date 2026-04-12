@@ -1,16 +1,16 @@
 import { Quote, Star } from "lucide-react";
-import nurseSugarImg from "@/assets/testimonial-nurse-sugar.png";
-import toluImg from "@/assets/testimonial-tolu.png";
+import nurseSugarImg from "@/assets/testimonia-nursesugar.png";
+import toluImg from "@/assets/testimonia-tolu-agbe.png";
 import nihinImg from "@/assets/testimonial-nihin-alabi.png";
-import elizabethImg from "@/assets/testimonial-elizabeth.png";
-import lillyImg from "@/assets/testimonial-author-lilly.png";
+import elizabethImg from "@/assets/testimonia-elisbeth.png";
+import lillyImg from "@/assets/testimony-author-lily.png";
 import apostleFemiImg from "@/assets/testimonial-apostle-femi.webp";
 
 const featuredTestimonial = {
   quote:
     "Grace didn't just write my book, she captured my voice, my heart, and my message in a way I never thought possible. Working with Eyelight Publishing was a divine experience. From start to finish, the professionalism, attention to detail, and genuine care for the project exceeded all my expectations. I wholeheartedly endorse their work.",
   name: "Apostle Femi Lazarus",
-  location: "Lagos, Nigeria",
+  location: "Abuja, Nigeria",
   image: apostleFemiImg,
 };
 
