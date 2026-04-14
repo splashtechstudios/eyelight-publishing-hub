@@ -31,7 +31,7 @@ const testimonials = [
   },
   {
     quote:
-      "I would like to specially appreciate my editor and publisher, Grace Akowe Apara, and her entire team at Eyelight Publishing, for their exceptional professionalism and dedication to my book project. From editing the manuscript to securing the ISBN, managing the entire publishing process step-by-step, and overseeing the printing of the physical copies, every stage was handled efficiently and with great attention to detail. The entire project was completed within a remarkably short time without compromising quality.",
+      "I would like to specially appreciate my editor and publisher, Grace Akowe Apara, and her entire team at Eyelight Publishing Services, for their exceptional professionalism and dedication to my book project. From editing the manuscript to securing the ISBN, managing the entire publishing process step-by-step, every stage was handled efficiently and with great attention to detail. The entire project was completed within a remarkably short time without compromising quality.",
     name: "Nihin Alabi",
     location: "United States of America",
     image: nihinImg,
