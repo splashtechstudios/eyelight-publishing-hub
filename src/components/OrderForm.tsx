@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { services } from "./Services";
 import { useToast } from "@/hooks/use-toast";
-import { MessageCircle, Mail, ArrowLeft } from "lucide-react";
+import { MessageCircle, Mail, ArrowLeft, CalendarCheck } from "lucide-react";
+import ConsultationDialog from "./ConsultationDialog";
 
 const OrderForm = () => {
   const { toast } = useToast();
@@ -223,6 +224,26 @@ const OrderForm = () => {
                   </a>
                 </li>
               </ul>
+            </div>
+
+            <div className="bg-primary text-primary-foreground rounded-xl border border-primary p-6">
+              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3">
+                <CalendarCheck size={14} /> 1:1 Session
+              </div>
+              <h3 className="text-base font-semibold mb-2">
+                Need guidance first?
+              </h3>
+              <p className="text-sm text-primary-foreground/70 mb-4 leading-relaxed">
+                Book a 45-minute consultation with the Chief Editor for $15 /
+                ₦20,000.
+              </p>
+              <ConsultationDialog
+                trigger={
+                  <button className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-accent text-accent-foreground text-sm font-semibold rounded-full hover:opacity-90 transition-opacity">
+                    Book a Consultation
+                  </button>
+                }
+              />
             </div>
 
             <div className="bg-card rounded-xl border border-border p-6">

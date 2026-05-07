@@ -1,4 +1,5 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CalendarCheck } from "lucide-react";
+import ConsultationDialog from "./ConsultationDialog";
 
 const CTA = () => {
   return (
@@ -15,12 +16,21 @@ const CTA = () => {
         <p className="text-primary-foreground/70 leading-relaxed mb-8">
           If that matters to you, we're ready when you are.
         </p>
-        <a
-          href="#order"
-          className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-accent text-accent-foreground text-sm font-semibold rounded-full hover:opacity-90 transition-opacity"
-        >
-          Work With Us <ArrowRight size={16} />
-        </a>
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <a
+            href="#order"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-accent text-accent-foreground text-sm font-semibold rounded-full hover:opacity-90 transition-opacity"
+          >
+            Work With Us <ArrowRight size={16} />
+          </a>
+          <ConsultationDialog
+            trigger={
+              <button className="inline-flex items-center justify-center gap-2 px-8 py-3.5 border border-primary-foreground/30 text-primary-foreground text-sm font-semibold rounded-full hover:bg-primary-foreground/5 transition-colors">
+                <CalendarCheck size={16} /> Book a Consultation
+              </button>
+            }
+          />
+        </div>
       </div>
     </section>
   );

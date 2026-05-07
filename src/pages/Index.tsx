@@ -11,6 +11,7 @@ import FAQ from "@/components/FAQ";
 import OrderForm from "@/components/OrderForm";
 import SelectedWorks from "@/components/SelectedWorks";
 import CTA from "@/components/CTA";
+import ConsultationBanner from "@/components/ConsultationBanner";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 
@@ -24,6 +25,7 @@ const Index = () => {
       <Differentiator />
       <WhyAuthors />
       <Services />
+      <ConsultationBanner />
       <HowItWorks />
       <Testimonials />
       <SelectedWorks />
