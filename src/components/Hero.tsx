@@ -1,5 +1,6 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CalendarCheck } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
+import ConsultationDialog from "./ConsultationDialog";
 
 const stats = [
   { value: "335+", label: "Books & Projects Delivered" },
@@ -49,6 +50,15 @@ const Hero = () => {
                 Explore Services
               </a>
             </div>
+
+            <ConsultationDialog
+              trigger={
+                <button className="inline-flex items-center gap-2 text-sm text-primary-foreground/70 hover:text-accent transition-colors mb-10 -mt-4">
+                  <CalendarCheck size={14} className="text-accent" />
+                  Or book a 45-min consultation with the Chief Editor
+                </button>
+              }
+            />
 
             {/* Stats */}
             <div className="flex gap-8 mb-8">
