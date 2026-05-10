@@ -1,5 +1,6 @@
 import { ReactNode, useState } from "react";
-import { Calendar, Clock, DollarSign, MessageCircle, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Calendar, Clock, DollarSign, MessageCircle, Mail, CreditCard } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -42,7 +43,7 @@ const ConsultationDialog = ({ trigger }: Props) => {
                 <DollarSign size={14} /> Fee
               </div>
               <p className="text-sm font-semibold text-foreground">
-                $15 / ₦20,000
+                ₦25,000
               </p>
               <p className="text-xs text-muted-foreground mt-1">per session</p>
             </div>
@@ -73,20 +74,27 @@ const ConsultationDialog = ({ trigger }: Props) => {
             </ul>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3 pt-2">
+          <Link
+            to="/book"
+            onClick={() => setOpen(false)}
+            className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-accent text-accent-foreground text-sm font-semibold rounded-full hover:opacity-90 transition-opacity"
+          >
+            <CreditCard size={16} /> Reserve & Pay Online
+          </Link>
+          <div className="flex flex-col sm:flex-row gap-3">
             <a
               href={`https://wa.me/2349085181361?text=${whatsappMessage}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 bg-accent text-accent-foreground text-sm font-semibold rounded-full hover:opacity-90 transition-opacity"
+              className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 border border-border text-foreground text-sm font-semibold rounded-full hover:bg-muted transition-colors"
             >
-              <MessageCircle size={16} /> Book via WhatsApp
+              <MessageCircle size={16} /> WhatsApp
             </a>
             <a
               href="mailto:services@eyelightpublishing.com?subject=Consultation%20Booking%20Request"
               className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 border border-border text-foreground text-sm font-semibold rounded-full hover:bg-muted transition-colors"
             >
-              <Mail size={16} /> Book via Email
+              <Mail size={16} /> Email
             </a>
           </div>
         </div>
