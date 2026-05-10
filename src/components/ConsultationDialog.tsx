@@ -1,5 +1,6 @@
 import { ReactNode, useState } from "react";
-import { Calendar, Clock, DollarSign, MessageCircle, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Calendar, Clock, DollarSign, MessageCircle, Mail, CreditCard } from "lucide-react";
 import {
   Dialog,
   DialogContent,
