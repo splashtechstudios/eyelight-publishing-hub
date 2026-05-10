@@ -43,7 +43,7 @@ const ConsultationDialog = ({ trigger }: Props) => {
                 <DollarSign size={14} /> Fee
               </div>
               <p className="text-sm font-semibold text-foreground">
-                $15 / ₦20,000
+                ₦25,000
               </p>
               <p className="text-xs text-muted-foreground mt-1">per session</p>
             </div>
